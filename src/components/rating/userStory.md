@@ -1,0 +1,5 @@
+0. Upon rendering, this component is showing rating - which is rounded value calculated from all votes (so if mean is 3.4 we show three full stars, if it's 4.7 - five stars). This amount is provided from the server.
+1. User decides on a score from 1 to 5 and clicks corresponding star. If user hovers over middle star (score 3), three stars get highlighted, etc.;
+2. Once user clicks the star, this component is immediately optimistically updated to show that new score, updated with user's choice.
+3. In the background, request is sent to the server, and an answer is received. If the answer is success, we should write voteId (received from the server) to user's local storage to prevent him from casting multiple votes (and yes, we know it's easy to bypass for someone technical). If the answer is error, we don't write anything in local storage.
+4. For this task's sake, we don't do anything else at this stage, regardless of server response.
